@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: daily_weather
+    description: Daily weather aggregates for each configured city.
+
+    columns:
+      - name: city
+        description: City name.
+        data_tests:
+          - not_null
+
+      - name: date
+        description: Weather observation date.
+        data_tests:
+          - not_null
+
+      - name: avg_temperature
+        description: Average daily mean temperature.
+
+      - name: max_temperature
+        description: Maximum temperature recorded for the day.
+
+      - name: min_temperature
+        description: Minimum temperature recorded for the day.
+
+      - name: total_precipitation
+        description: Total precipitation for the day.

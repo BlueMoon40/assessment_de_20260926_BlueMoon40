@@ -1,0 +1,40 @@
+version: 2
+
+sources:
+  - name: weather
+    description: Raw daily weather data loaded from the Open-Meteo historical archive API.
+    database: warehouse
+    schema: raw
+    tables:
+      - name: weather_daily
+        description: One row per city per date as returned by Open-Meteo.
+        columns:
+          - name: city
+            description: City name configured for extraction.
+            data_tests:
+              - not_null
+
+          - name: date
+            description: Weather observation date.
+            data_tests:
+              - not_null
+
+          - name: temperature_2m_mean
+            description: Daily mean temperature at 2 metres.
+            data_tests:
+              - not_null
+
+          - name: temperature_2m_max
+            description: Daily maximum temperature at 2 metres.
+            data_tests:
+              - not_null
+
+          - name: temperature_2m_min
+            description: Daily minimum temperature at 2 metres.
+            data_tests:
+              - not_null
+
+          - name: precipitation_sum
+            description: Daily precipitation sum.
+            data_tests:
+              - not_null
